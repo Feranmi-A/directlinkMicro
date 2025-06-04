@@ -85,7 +85,7 @@ def deposit():
 
 @app.route('/banking/withdraw', methods=['POST'])
 def withdraw():
-    if 'user_id' not in session':
+    if 'user_id' not in session:
         return redirect(url_for('login'))
     amount = request.form.get('amount')
     try:

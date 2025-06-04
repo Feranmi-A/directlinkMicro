@@ -14,4 +14,4 @@ app.get('/api/v1/info', (req, res) => {
   res.json({ name: "Module 5 Service", description: "React + Node.js + MongoDB" });
 });
 
-app.listen(PORT, () => console.log(\`Module5 listening on port \${PORT}\`));
+app.listen(PORT, () => console.log("Module5 listening on port" + PORT));
