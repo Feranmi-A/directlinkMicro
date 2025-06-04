@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Portfolio</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    h1   { color: #2c3e50; }
+    ul   { list-style: none; padding: 0; }
+    li   { margin: 10px 0; }
+    a    { color: #2980b9; text-decoration: none; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Student Portfolio</h1>
+  <p>Welcome! Click any link below to launch that microservice:</p>
+  <ul>
+    <li><a href="http://localhost:3001/" target="_blank">Module 5 Service</a></li>
+    <li><a href="http://localhost:5001/transactions/status" target="_blank">Transaction Service</a></li>
+    <li><a href="http://localhost:5002/banking/register" target="_blank">Banking App</a></li>
+  </ul>
+  <p style="color: #999; font-size: 0.9em;">
+    ⚠️ Each service runs on its own port—no single “nginx/gateway” is needed.
+  </p>
+</body>
+</html>

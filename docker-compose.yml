@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  portfolio:
+    image: nginx:alpine
+    volumes:
+      - ./portfolio/index.html:/usr/share/nginx/html/index.html:ro
+    ports:
+      - "3000:80"
+
+  module5:
+    build:
+      context: ./module5-service
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    depends_on:
+      - mongo
+
+  transaction:
+    build:
+      context: ./transaction-service
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+
+  banking:
+    build:
+      context: ./banking-service
+      dockerfile: Dockerfile
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/bank_app
+      - SECRET_KEY=supersecretkey
+    ports:
+      - "5002:5002"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongo_data:
